@@ -17,6 +17,8 @@ builder.Services.AddSwaggerServices();
 
 builder.Services.AddScoped<JwtService.IService, JwtService.Service>();
 
+builder.Services.AddTransient<GlobalExceptionHandlerMiddleware>();
+
 var app = builder.Build();
 
 app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
